@@ -1,0 +1,51 @@
+<div class="mural-container">
+  <h2>Mural de Recados Interativo</h2>
+
+  <div class="novo-recado-form">
+    <input 
+      type="text" 
+      [(ngModel)]="novoRecado" 
+      (keyup.enter)="publicarRecado()"
+      placeholder="Digite um novo recado..." 
+    />
+    <button (click)="publicarRecado()" [disabled]="!novoRecado.trim()">
+      Publicar
+    </button>
+  </div>
+
+  <hr />
+
+ 
+  <h3>Lista de Recados</h3>
+  <ul>
+    @for (recado of recados; track $index) {
+      <li (click)="selecionarRecado(recado)" class="item-recado">
+        {{ recado }}
+      </li>
+    }
+  </ul>
+
+  <hr />
+
+
+  <h3>Detalhes do Recado</h3>
+  @if (recadoSelecionado) {
+    
+    <div [class.lido]="recadoLido" [class.nao-lido]="!recadoLido" class="card-recado">
+      
+    
+      <p><strong>Recado Selecionado:</strong> {{ recadoSelecionado }}</p>
+
+      <button (click)="alternarLido()">
+        {{ recadoLido ? 'Marcar como Não Lido' : 'Marcar como Lido' }}
+      </button>
+
+    
+      <button (click)="curtir()">Curtir</button>
+      <p>Curtidas: <strong>{{ curtidas }}</strong></p>
+
+    </div>
+  } @else {
+    <p><em>Nenhum recado foi selecionado. Clique em um recado da lista acima.</em></p>
+  }
+</div>
