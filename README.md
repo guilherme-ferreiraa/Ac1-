@@ -1,59 +1,63 @@
-# Ac1
+# Mural de Recados Interativo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Aplicação web desenvolvida como AC1 para praticar conceitos fundamentais do Angular. O mural permite publicar recados, selecionar um item e interagir com ele marcando-o como lido ou não lido e registrando curtidas.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- Exibe recados iniciais de exemplo.
+- Publica novos recados; o botão fica desativado quando o campo está vazio e `Enter` também publica.
+- Mostra os detalhes do recado selecionado.
+- Permite alternar o estado de leitura e adicionar curtidas.
+- Aplica estilos diferentes aos estados lido e não lido.
 
-```bash
-ng serve
-```
+> **Importante:** os dados são mantidos apenas na memória do navegador. Ao atualizar ou fechar a página, os recados adicionados e as interações são reiniciados. O projeto não possui API ou banco de dados.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologias
 
-## Code scaffolding
+- Angular 22
+- TypeScript
+- HTML e CSS
+- Angular Forms (`ngModel`) e Angular Router
+- Vitest para testes unitários
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Como executar
 
-```bash
-ng generate component component-name
-```
+### Pré-requisitos
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Node.js e npm instalados.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Instalação e execução
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Abra [http://localhost:4200/mural-recados](http://localhost:4200/mural-recados) no navegador. O servidor de desenvolvimento recarrega a aplicação quando os arquivos são alterados.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Comandos disponíveis
 
 ```bash
-ng test
+npm start   # inicia o servidor de desenvolvimento
+npm run build # gera a versão de produção em dist/
+npm test    # executa os testes unitários
 ```
 
-## Running end-to-end tests
+## Estrutura do projeto
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```text
+src/
+├── app/
+│   ├── mural-recados/       # componente, template, estilos e teste do mural
+│   ├── app.config.ts        # configuração da aplicação e do roteador
+│   ├── app.routes.ts        # rota /mural-recados
+│   └── app.*                # componente raiz
+├── index.html               # documento HTML principal
+├── main.ts                  # inicialização da aplicação Angular
+└── styles.css               # estilos globais
+public/                      # recursos estáticos, como o favicon
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Testes
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Execute `npm test` para iniciar a suíte de testes unitários com Vitest. O projeto não tem um comando ou framework de testes end-to-end configurado no momento.
